@@ -1,5 +1,3 @@
-
-
 /*----------------Estilos de Header----------------*/
 .header{
 	height: 60px;
@@ -18,14 +16,13 @@
 }
 .nav{
 	position: absolute;
-	top: 68px;
+	top: 0%;
 	left: 0;
 }
 .menu{
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	margin-left: 7px;
 }
 .menu__link{
 	display: block;
@@ -38,20 +35,20 @@
 	background: white;
 	color: #FBA919;
 }
-/*----------------Estilos de banner----------------*/
-.banner  {
-	margin-top: 0px;
-	position: relative;
-	z-index: -1000;
-}
 
-.banner .contenedor {
+/*----------------Estilos de Cuerpo----------------*/
+.peron{
+	margin-top: 0px;
+	z-index: -1000;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	width: 150%;
-	font-size: 20px;
 	color: #f1f;
 	text-align: center;
+}
+
+.hola{
+	background: rgba(0,0,0,0.5);
 }
