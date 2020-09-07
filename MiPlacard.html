@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Placard</title>
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="Css/EstiloPlacard.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="Js/Placard.js" type="text/javascript"></script>
 	</head>
 
 <body bgcolor="#dd9355">
@@ -20,10 +22,61 @@
 				</nav>
 			</div>
 		</header>
-		<div bgcolor="#99d99f" class="peron">
+		<section bgcolor="#99d99f" class="cuerpo" style="width:80%">
 		<h3>Ropa Guardada</h3>
-			<p></p>
-			<p><u>Hola</u></p>
-		</div>
+			<form> 
+			<input type="button" onclick="calcula_resta()" value="Cambiar"></form>
+			<section class="portafolio">
+			<div class="galeria">
+					<div class="ropa_tarjeta">
+						<h2 class="tipo__ropa" id="Btprenda">Zapatilla</h2>
+						<img src="Img/zapatillas.png" width="235px" height="235px" lt="" class="ropa_imagen">
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas2.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas2.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+					<div class="ropa_tarjeta">
+						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+				<div class="ropa_tarjeta">
+						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<h3 class="tipo__ropa">Zapatillas</h3>
+						<p class="elegir__txt">Info</p>
+					</div>
+			</div>
+
+			<div class="scontenedor"><h2>Eligir Prendas</h2>
+				<div class="sropa">
+				</div>
+				<div class="spreferencia">
+				</div>
+			</div>
+			</section>
+		</section>
 	</body>
 </html>
+

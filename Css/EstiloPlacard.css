@@ -37,18 +37,44 @@
 }
 
 /*----------------Estilos de Cuerpo----------------*/
-.peron{
-	margin-top: 0px;
-	z-index: -1000;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
-	width: 150%;
-	color: #f1f;
-	text-align: center;
+
+.cuerpo{
+	padding: 60px;
+	width: 95%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden; 
+}
+/*----------------Estilos de Galeria----------------*/
+.galeria{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
-.hola{
-	background: rgba(0,0,0,0.5);
+.ropa_tarjeta{
+	width: 24%;
+	margin-bottom: 10px;
+	background-image: linear-gradient(-45deg, #e3ddd9 50%, #5e4a44 50%);
+	margin: auto;
 }
+
+.ropa_imagen{
+	width: 90%;
+	height: 90%;
+	object-fit: cover;
+	display: block;
+	margin: auto;
+	margin-top: 16px;
+}
+	
+.tipo__ropa{
+	text-align: center;
+}
+.elegir__txt
+{
+
+}
+/*----------------Estilos de Elegir----------------*/
+
+
