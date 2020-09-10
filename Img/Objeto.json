@@ -1,0 +1,49 @@
+{ "prendas": [
+	 	{
+			"direccion" : "Img/remera0.png",
+			"tipo" : "remera",
+			"colorp" : "blanco",
+			"colors" : "rojo",
+			"moda" : 50,
+			"temporada" : 1,
+			"evento" : "casual"
+		}, 
+		{
+			"direccion" : "Img/remera1.png",
+			"tipo" : "remera",
+			"colorp" : "azul",
+			"colors" : "rojo",
+			"moda" : 50,
+			"temporada" : 1,
+			"evento" : "casual"
+		},
+	 	{
+			"direccion" : "Img/zapatilas0.png",
+			"tipo" : "zapatillas",
+			"colorp" : "negro",
+			"colors" : "blanco",
+			"moda" : 50,
+			"temporada" : 5,
+			"evento" : "casual"
+		}, 
+		{
+			"direccion" : "Img/zapatillas1.png",
+			"tipo" : "zapatillas",
+			"colorp" : "azul",
+			"colors" : "blanco",
+			"moda" : 50,
+			"temporada" : 5,
+			"evento" : "casual"
+		},
+		{
+			"direccion" : "Img/zapatillas2.png",
+			"tipo" : "zapatillas",
+			"colorp" : "rojo",
+			"colors" : "blanco",
+			"moda" : 50,
+			"temporada" : 5,
+			"evento" : "casual"
+		}
+
+	]
+}

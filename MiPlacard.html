@@ -2,7 +2,7 @@
 <htlm lang="es">
 	<head>
 		<meta charset="utf-8">
-		<title>Placard</title>
+		<title>MiPlacard</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="Css/EstiloPlacard.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,68 +11,84 @@
 
 <body bgcolor="#dd9355">
 <header class="header">
-			<div class="contenedor">
-				<h1 class="logo">MiPlacard</h1>
-				<span class="icon-menu"></span>
-				<nav class="nav">
-					<ul class="menu">
-						<li class="menu__item"><a class="menu__link" href="Index.html">Inicio</a></li>
-						<li class="menu__item"><a class="menu__link" href="">Cuenta</a></li>
-					</ul>
+		<div class="contenedor">
+			<h1 class="logo">MiPlacard</h1>
+			<span class="icon-menu"></span>
+			<nav class="nav">
+				<ul class="menu">
+				<li class="menu__item"><a class="menu__link" href="Index.html">Inicio</a></li>
+				</ul>
 				</nav>
-			</div>
-		</header>
-		<section bgcolor="#99d99f" class="cuerpo" style="width:80%">
+		</div>
+</header>
+		<section bgcolor="#99d99f" class="cuerpo">
 		<h3>Ropa Guardada</h3>
 			<form> 
-			<input type="button" onclick="calcula_resta()" value="Cambiar"></form>
+			<input type="button" onclick="CambiarTipoRopa()" value="Cambiar">
+			<input type="button" onclick="CambiarImagen(1)" value="Siguiente">
+			</form>
 			<section class="portafolio">
 			<div class="galeria">
 					<div class="ropa_tarjeta">
 						<h2 class="tipo__ropa" id="Btprenda">Zapatilla</h2>
-						<img src="Img/zapatillas.png" width="235px" height="235px" lt="" class="ropa_imagen">
+						<img id="ropa_imagen0" src="Img/zapatillas0.png" width="235px" height="235px" lt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas2.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen1" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen2" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen3" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas2.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen4" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen5" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
-						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+						<img id="ropa_imagen6" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
-				<div class="ropa_tarjeta">
-						<img src="Img/zapatillas.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<h3 class="tipo__ropa">Zapatillas</h3>
-						<p class="elegir__txt">Info</p>
+					<div class="ropa_tarjeta">
+						<img id="ropa_imagen7" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<p class="ropa_txt">Info</p>
 					</div>
 			</div>
 
+		<div id="wrapper">
+			<h1>Subir Prenda</h1>
+			<div id=container-input>
+				<div class="wrap-file">
+					<div class="content-icon-camera">
+						<input type="file" id="file" name="file[]" accept="image/*"multiple />
+						<div class="icon-camera"></div>
+					</div>
+					<div id="preview-images">
+						
+					</div>
+				</div>
+				<button id="publish">Publicar</button>
+			</div>
+			<h2 id="success"></h2>
+		</div>
+
 			<div class="scontenedor"><h2>Eligir Prendas</h2>
 				<div class="sropa">
+					<img id="imagenSeleccionada" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 				</div>
 				<div class="spreferencia">
+					<input type="button" onclick="seleccionarPrenda()" value="Seleccionar">
+					<input type="button" onclick="borrarImagen()" value="Borrar">
+					<p>Tipo: <input type="text" id="tropa" name="tropa" size="30"></p>
+					<p>Color: <input type="text" id="colorp" name="Color" size="30"></p>
 				</div>
 			</div>
 			</section>
