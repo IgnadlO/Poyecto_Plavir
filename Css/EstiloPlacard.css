@@ -97,8 +97,14 @@ button{
 /*----------------Estilos de Placard----------------*/
 .scontenedor{
 width: 100%;
-height: 400px;
+height: 750px;
 background-image: linear-gradient(-45deg, #e3ddd9 50%, #5e4a44 50%);
+}
+
+.spreferencia{
+width: 250px;
+height: 300px;
+background-image: #FCB919; 
 }
 
 
