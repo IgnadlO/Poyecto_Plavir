@@ -20,6 +20,12 @@
 				<li class="menu__item"><a class="menu__link" href="SubirPrendas.html">Subir Prendas</a></li>
 				</ul>
 				</nav>
+				<form>
+					<input type="button" onclick="cargarData()" value="Login">
+					<input type="text" name="usuario" id="usuario" placeholder="Usuario"><br/>
+					<input type="button" value="Regis">
+					<input type="text" name="contra" placeholder="Contraseña">
+				</form>
 		</div>
 </header>
 		<section bgcolor="#99d99f" class="cuerpo">
@@ -63,27 +69,6 @@
 						<p class="ropa_txt">Info</p>
 					</div>
 			</div>
-
-		<div id="wrapper">
-			<h1>Subir Prenda</h1>
-			<div id=container-input>
-				<div class="wrap-file">
-			<form method="POST" id="formulario" action="guardarEnDb.php">
-            Nombre <input type="text" name="nombre" id="nombre"> <br/>
-            Mensaje <input type="text" name="mail" id="mail"><br/>
-            <input type="submit" value="Enviar!"><br/>
-					<div class="content-icon-camera">
-						<input type="file" id="file" name="file[]" accept="image/*"multiple />
-						<div class="icon-camera"></div>
-					</div>
-					<div id="preview-images">
-						
-					</div>
-				</div>
-				<button id="publish">Publicar</button>
-			</div>
-			<h2 id="success"></h2>
-		</div>
 
 			<div class="scontenedor"><h2>Eligir Prendas</h2>
 				<div class="spreferencia">
