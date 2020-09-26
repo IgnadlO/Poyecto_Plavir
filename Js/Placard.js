@@ -1,68 +1,65 @@
 var tprenda = 0;
 var prendasDuras = new Array();
+var prendas;
 
+function cargarData(){
+  var usuario = document.getElementById('usuario').value;
+  var url = 'bajarPrendas.php';
+  $.ajax({
+    type:'POST',
+    url:url,
+    data:'nombre='+usuario,
+    success:function(response){
+      var json = JSON.parse(response);
+      prendas = json;
+    }
+  });
+}
 
 function buscarPrenda(){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    	var objeto = JSON.parse(xhttp.responseText);
     	tropa = document.getElementById('tropa').value;
       tropa = tropa.toLowerCase();
     	colorp = document.getElementById('colorp').value;
       colorp = colorp.toLowerCase();
     	ac = 0;
     	i = 0;
-    	while(ac != 1 && i < objeto.prendas.length){
-    		if(objeto.prendas[i].tipo == tropa && objeto.prendas[i].colorp == colorp)
+    	while(ac != 1 && i < prendas.length){
+    		if(prendas[i].tipo == tropa && prendas[i].colorp == colorp)
     		{
     			ac = 1;
-    			document.getElementById("imagenSeleccionada").src= objeto.prendas[i].direccion;
+    			document.getElementById("imagenSeleccionada").src= prendas[i].direccion;
     		} else 
     			i ++;
     	}
     	if (ac == 0)
     	alert("No se ha encontrado ningun/a/as "+ tropa +" de color "+ colorp);
     }
-};
-xhttp.open("GET", "Img/objeto.json", true);
-xhttp.send();
-}
+
 
 function filtroDuro(){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-      var objeto = JSON.parse(xhttp.responseText);
+      alert(prendas[0].propietario);
       var x = 0;
       tropa = document.getElementById('tropa').value;
       tmoda = document.getElementById('moda').checked;
       ttemporada = document.getElementById('temporada').value;
       tevento = document.getElementById('evento').value;
       prendasDuras = [];
-      for(var i = 0; i < objeto.prendas.length; i++){
-        if(objeto.prendas[i].moda == tmoda 
-          && (objeto.prendas[i].temporada == ttemporada || objeto.prendas[i].temporada == 5
-          || (ttemporada <= 2 && objeto.prendas[i].temporada == 6 ) || (ttemporada >= 3 && objeto.prendas[i].temporada == 7 ))
-          && (objeto.prendas[i].evento == tevento || objeto.prendas[i].evento== 5)
-          || (tevento <= 2 && objeto.prendas[i].evento == 6 ) || (tevento >= 2 && objeto.prendas[i].evento == 7 ))
+      for(var i = 0; i < prendas.length; i++){
+        if((prendas[i].temporada == ttemporada || prendas[i].temporada == 5
+          || (ttemporada <= 2 && prendas[i].temporada == 6 ) || (ttemporada >= 3 && prendas[i].temporada == 7 ))
+          && (prendas[i].evento == tevento || prendas[i].evento== 5)
+          || (tevento <= 2 && prendas[i].evento == 6 ) || (tevento >= 2 && prendas[i].evento == 7 ))
         {
           prendasDuras[x] = i;
           x++;
-        } 
+        }
       }
+      alert(prendasDuras); 
       elegirConjunto();
-}
-};
-xhttp.open("GET", "Img/objeto.json", true);
-xhttp.send();
 }
 
 function elegirConjunto(){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-      var objeto = JSON.parse(xhttp.responseText);
+
       ttemperatura = document.getElementById('temperatura').value;
       let mprenda;
       var arrayPrendas = new Array();
@@ -93,7 +90,7 @@ xhttp.onreadystatechange = function(){
       arrayPrendas = [];
         for (var x = 0; x <= prendasDuras.length - 1; x++) {
           np = prendasDuras[x];
-          if (objeto.prendas[np].tipo == mprenda[i]) {
+          if (prendas[np].tipo == mprenda[i]) {
             arrayPrendas[j] = prendasDuras[x];
             j ++;
           }
@@ -104,42 +101,22 @@ xhttp.onreadystatechange = function(){
         j = 0;
      }
     }
-  };
-xhttp.open("GET", "Img/objeto.json", true);
-xhttp.send();
-}
 
 
 function filtroBlando(){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-      var objeto = JSON.parse(xhttp.responseText);
-      for (var i = prendasDuras.length - 1; i >= 0; i--) {
-
-      }
     }
-  };
-xhttp.open("GET", "Img/objeto.json", true);
-xhttp.send();
-}
+
 
 function subirConjunto(prenda, mprenda){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-      var objeto = JSON.parse(xhttp.responseText);
+
       if(mprenda == "buzo" || mprenda == "campera" || mprenda == "abrigo")
         mprenda = "superior";
       if(prenda != null)
-        document.getElementById("imagen"+ mprenda).src = objeto.prendas[prenda].direccion;
+        document.getElementById("imagen"+ mprenda).src = prendas[prenda].direccion;
       else
         document.getElementById("imagen"+ mprenda).src = "";
     }
-  };
-xhttp.open("GET", "Img/objeto.json", true);
-xhttp.send();
-}
+
 
 
 function borrarImagen(){
