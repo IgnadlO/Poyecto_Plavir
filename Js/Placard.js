@@ -1,17 +1,34 @@
-var tprenda = 0;
+var tprenda = -1, repe = 0;
 var prendasDuras = new Array();
+var conjunto = new Array();
 var prendas;
 
 function cargarData(){
   var usuario = document.getElementById('usuario').value;
+  var contra = document.getElementById('contra').value;
   var url = 'bajarPrendas.php';
   $.ajax({
     type:'POST',
     url:url,
-    data:'nombre='+usuario,
+    data:{nombre: usuario,
+          contra: contra}, 
     success:function(response){
-      var json = JSON.parse(response);
-      prendas = json;
+      if(response == 1){
+        alert("Su contraseña es incorrecta");
+      }else if(response == 2){
+        alert("Su usuario es inexistente");
+      }else{
+        var json = JSON.parse(response);
+        prendas = json;
+        var cuadro = document.getElementById("cuadroLogin");
+        var hijo = cuadro.children;
+        cuadro.remove(hijo);
+        var capa = document.getElementById("cuadroUsuario");
+        var h2 = document.createElement("h2");
+        h2.innerHTML = prendas[0].propietario;
+        capa.appendChild(h2);
+        CambiarTipoRopa();
+      }
     }
   });
 }
@@ -37,7 +54,6 @@ function buscarPrenda(){
 
 
 function filtroDuro(){
-      alert(prendas[0].propietario);
       var x = 0;
       tropa = document.getElementById('tropa').value;
       tmoda = document.getElementById('moda').checked;
@@ -54,7 +70,6 @@ function filtroDuro(){
           x++;
         }
       }
-      alert(prendasDuras); 
       elegirConjunto();
 }
 
@@ -64,7 +79,7 @@ function elegirConjunto(){
       let mprenda;
       var arrayPrendas = new Array();
       var j = 0, limitePorEstacion;
-      var conjunto = new Array();
+      var conjuntoNuevo = new Array();
 
       if (ttemporada == 1) 
       {
@@ -97,11 +112,34 @@ function elegirConjunto(){
         }
         prendaAleatorio = aleatorio(arrayPrendas);
         subirConjunto(prendaAleatorio, mprenda[i]);
-        conjunto[i] = prendaAleatorio;
+        conjuntoNuevo[i] = prendaAleatorio;
         j = 0;
      }
+     if(repe >= 5)
+      alert("no tiene mas conjuntos posibles");
+    else{
+      validarRepe(conjuntoNuevo);
+    }
     }
 
+function validarRepe(conjuntoNuevo){
+  var igual = 0;
+     var j = conjuntoNuevo.length;
+    for (var i = 0; i <= j - 1; i++){
+          if(conjunto[i] == conjuntoNuevo[i]){
+            igual ++;
+          }
+     }
+     if(igual == j){
+      elegirConjunto();
+      repe ++;
+     }else{
+      for (var i = 0; i <= j; i++) {
+        conjunto[i] = conjuntoNuevo[i];
+        repe = 0;
+      }
+      }
+}
 
 function filtroBlando(){
     }
@@ -126,21 +164,26 @@ function borrarImagen(){
 
 function CambiarImagen(op) {
 	var nprenda = 0;
+  let mprenda = ["zapatillas","remera","campera","buzo","pantalon","gorra","lentes"];
+  var prendasTipo = new Array();
+  var x = 0;
 if(op == 1)
 {
 	nprenda = 8;
 }
-for (var i = 0; i < 8; i++) {
-switch(tprenda){
-case 0: document.getElementById("ropa_imagen"+ i).src="Img/zapatillas"+nprenda+".png"; break;
-case 1: document.getElementById("ropa_imagen"+ i).src="Img/remera"+nprenda+".png"; break;
-case 2: document.getElementById("ropa_imagen"+ i).src="Img/buzo"+nprenda+".png"; break;
-case 3: document.getElementById("ropa_imagen"+ i).src="Img/campera"+nprenda+".png"; break;
-case 4: document.getElementById("ropa_imagen"+ i).src="Img/pantalon"+nprenda+".png"; break;
-case 5: document.getElementById("ropa_imagen"+ i).src="Img/gorra"+nprenda+".png"; break;
-case 6: document.getElementById("ropa_imagen"+ i).src="Img/lentes"+nprenda+".png"; break;
+  prendasTipo = [];
+for (var i = prendas.length - 1; i >= 0; i--) {
+  if(mprenda[tprenda] == prendas[i].tipo){
+    prendasTipo[x] = i;
+    x++;
+  }
 }
-nprenda ++;
+for(var i = 0; i < 8; i++){
+ document.getElementById("ropa_imagen"+ i).src = ""; 
+}
+for (var i = 0; i < x; i++) {
+  document.getElementById("ropa_imagen"+ i).src = prendas[prendasTipo[nprenda]].direccion;
+  nprenda ++;
 }
 }
 

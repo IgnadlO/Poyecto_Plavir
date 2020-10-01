@@ -21,34 +21,19 @@
             color: #1a2537;
             font-size: 40px;
         }
-        input[type="Correo"]{
+        input[type="password"]{
             font-size: 20px;
             width: 82%;
             padding: 10px;
             border: none;
         }
-        input[type="Contraseña"]{
+        input[type="text"]{
             font-size: 20px;
             width: 82%;
             padding: 10px;
-            border: none;
+            border: none; 
         }
-        input[type="NombreApellido"]{
-            font-size: 20px;
-            width: 82%;
-            padding: 10px;
-            border: none;
-        }
-        .Ingreso-Correo{
-            margin-bottom: 15px;
-            border: 1px solid #aaa;
-        }
-
-        .Ingreso-Contraseña{
-            margin-bottom: 15px;
-            border: 1px solid #aaa;
-        }
-        .Ingreso-NombreApellido{
+        .Ingreso{
             margin-bottom: 15px;
             border: 1px solid #aaa;
         }
@@ -79,25 +64,30 @@
 
 </head>  
 <body>
- <form class="Formulario">
+ <form method="POST" class="Formulario" action="Registrar.php">
     
     <h1>Registrate</h1>
      <div class="Contenedor">
-     
-     <div class="Ingreso-NombreApellido">
-         <input type="NombreApellido" placeholder="Nombre Completo">
-         
+     <div class="Ingreso">
+         <input type="text" placeholder="Nombre Completo" name="nombre">
          </div>
          
-         <div class="Ingreso-Correo">
-         <input type="Correo" placeholder="Correo Electronico">
-         
+         <div class="Ingreso">
+         <input type="text" placeholder="Correo Electronico" name="email">    
          </div>
          
-         <div class="Ingreso-Contraseña">
-         <input type="Contraseña" placeholder="Contraseña">
-         
+         <div class="Ingreso">
+         <input type="password" placeholder="Contraseña" name="contra"> 
          </div>
+
+         <div class="Ingreso">
+         <input type="text" name="cumple" placeholder="Fecha de Nacimiento">
+         </div>
+
+         <div class="Ingreso">
+         <input type="text" name="provincia" placeholder="Provincia">
+         </div>
+
          <input type="submit" value="Registrate" class="Boton">
          <p>¿Ya tienes una cuenta?<a class="link" href="Login.html">Iniciar Sesion</a></p>
      </div>

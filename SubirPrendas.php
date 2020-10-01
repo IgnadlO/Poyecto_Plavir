@@ -19,12 +19,21 @@ else{
 $nombre = $_POST['nombre'];
 $tipo = $_POST['ropa'];
 $colorp = $_POST['cp'];
-$colors = $_POST['cs'];
 $moda = $_POST['moda'];
 $temporada = $_POST['temporada'];
 $evento = $_POST['evento'];
+$nombreImagen = $_FILES['imagen']['name'];
+$archivo = $_FILES['imagen']['tmp_name'];
+$ruta = "Img";
+$carpeta = $ruta."/".$nombre;
+$ruta = $ruta."/".$nombre."/".$nombreImagen;
+if (!file_exists($carpeta)) {
+    mkdir($carpeta, 0777, true);
+}
+move_uploaded_file($archivo,$ruta);
 
-$consulta = "INSERT INTO prendas (propietario, tipo, colorp, colors, moda, temporada, evento) VALUES ('".$nombre ."' , '" .$tipo . "','".$colorp ."','".$colors ."','".$moda ."' , '" .$temporada . "','".$evento ."')";
+
+$consulta = "INSERT INTO prendas (propietario, tipo, colorp, moda, temporada, evento, direccion) VALUES ('".$nombre ."' , '" .$tipo . "','".$colorp ."','".$moda ."' , '" .$temporada . "','".$evento ."','".$ruta ."')";
 
 
 $resultado = mysqli_query($enlace,$consulta);

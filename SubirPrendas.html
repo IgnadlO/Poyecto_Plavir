@@ -8,7 +8,7 @@
 <body>
 	<header class="header">
 		<div class="contenedor">
-			<h1 class="logo">MiPlacard</h1>
+			<h1 class="logo">Subir Prendas</h1>
 			<span class="icon-menu"></span>
 			<nav class="nav">
 				<ul class="menu">
@@ -18,41 +18,28 @@
 				</nav>
 		</div>
 </header>
-
-<h2>Subir Prendas</h2>
-
-<form method="POST" id="formulario" action="SubirPrendas.php">
+<form method="POST" id="formulario" action="SubirPrendas.php" enctype="multipart/form-data">
+<div class="imagen">
+<h2>Imagen</h2>
+<input type="file" name="imagen" multiple>
+</div>
+<div class="caracteristicas">
+<h2>Caracteristicas</h2>
 <p>tipo de ropa: <input type="text" id="ropa" name="ropa" size="30"></p>
 <p>color principal: <input type="text" id="cp" name="cp" size="30"></p>
-<p>color secundario: <input type="text" id="cs" name="cs" size="30"></p>
 <p><input type="checkbox" id="moda" name="moda" checked> Esta a la moda?</p>
 <p>Estacion: <select name="temporada" id="temporada"><option value="1">Verano</option><option value="3">Otoño</option><option value="4">Invierno</option><option value="2">Primavera</option></select></p>
 <p>Evento: <select name="evento" id="evento"><option value="1">Casual</option><option value="2">Informal</option><option value="3">Formal</option></select></p>
-
-<h2>Datos de Usuario</h2>
-
-<p>nombre: <input type="text" id="nombre" name="nombre" size="30"></p>
-<p>mail: <input type="text" id="mail" name="mail" size="30"></p>
-<p>contraseña: <input type="text" id="contrasenia" name="contrasenia" size="30"></p>
-<p>fecha de cumpleaños: <input type="text" id="cumpleanios" name="cumpleanios" size="30"></p>
+<p>Propietario: <input type="text" id="nombre" name="nombre" size="30"></p>
+</br>
 <input type="submit" value="Subir"><br/>
+</div>
 </form>
-<a href="BajarPrendas.php">Ver los mensajes enviados</a>
 <script
 	src="https://code.jquery.com/jquery-2.2.4.min.js"
 	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 	crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-
-	function _ajax(url, data){
-		var ajax = $.ajax({
-			"method": "POST",
-			"url": url,
-			"data": data
-		})
-	}
-
-</script>
+<script type="text/javascript"></script>
 </body>	
 </html>

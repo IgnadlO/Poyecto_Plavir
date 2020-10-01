@@ -33,23 +33,49 @@ while($row = mysqli_fetch_array($result))
 	if ($propietario == $nombre) {
 	$tipo=$row['tipo'];
     $colorp=$row['colorp'];
-    $colors=$row['colors'];
     $moda=$row['moda'];
     $temporada=$row['temporada'];
     $evento=$row['evento'];   
+    $direccion=$row['direccion'];
 
-    $rawdata[$i] = array('propietario'=> $propietario,'tipo'=> $tipo, 'colorp'=> $colorp,'colors'=> $colors, 'moda'=> $moda, 'temporada'=> $temporada,'evento'=> $evento);
+    $rawdata[$i] = array('propietario'=> $propietario,'tipo'=> $tipo, 'colorp'=> $colorp, 'moda'=> $moda, 'temporada'=> $temporada,'evento'=> $evento, 'direccion'=> $direccion);
     $i++;
 	}  
 }
+
 disconnectDB($conexion);
 return $rawdata;
 }
 
+function validar($nombre, $contra){
+$conexion = connectDB();
+$sql = "SELECT * FROM usuarios";
+mysqli_set_charset($conexion, "utf8"); 
+if(!$result = mysqli_query($conexion, $sql)) die();
+
+while($row = mysqli_fetch_array($result)) 
+{ 
+    $usuario=$row['nombre'];
+    $ct=$row['contra'];
+    if($usuario == $nombre && $contra == $ct){
+        disconnectDB($conexion);
+        $myArray = getArraySQL($nombre);
+        echo json_encode($myArray);
+        return;
+    }else if ($usuario == $nombre && $contra != $ct) {
+        echo "1";
+        disconnectDB($conexion);
+        return;
+    }
+}
+disconnectDB($conexion);
+echo "2";
+return;
+}
 
  		$nombre = $_POST["nombre"];
-		$myArray = getArraySQL($nombre);
-        echo json_encode($myArray);
+        $contra = $_POST["contra"];
+        validar($nombre, $contra);
 
 function disconnectDB($conexion){
 $close = mysqli_close($conexion) 
