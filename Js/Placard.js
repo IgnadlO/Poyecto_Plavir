@@ -1,4 +1,4 @@
-var tprenda = -1, repe = 0;
+var tprenda = -1, repe = 0, idSeleccionada = -1;
 var prendasDuras = new Array();
 var conjunto = new Array();
 var prendas;
@@ -38,19 +38,44 @@ function buscarPrenda(){
       tropa = tropa.toLowerCase();
     	colorp = document.getElementById('colorp').value;
       colorp = colorp.toLowerCase();
+      validas = new Array();
+      var x = 0;
     	ac = 0;
-    	i = 0;
-    	while(ac != 1 && i < prendas.length){
+
+    	for(var i = 0; i < prendas.length; i++){
     		if(prendas[i].tipo == tropa && prendas[i].colorp == colorp)
     		{
     			ac = 1;
-    			document.getElementById("imagenSeleccionada").src= prendas[i].direccion;
-    		} else 
-    			i ++;
+    			validas[x] = i;
+          x ++;
+    		}
     	}
+
     	if (ac == 0)
     	alert("No se ha encontrado ningun/a/as "+ tropa +" de color "+ colorp);
+
+    ac = 0;
+    if(validas.length >= 2){
+    for(var i = 0; i < validas.length - 1; i++){
+      if(idSeleccionada == validas[i]){
+        if(i == validas.length - 1){ 
+          subirConjunto(validas[0],tropa);
+          idSeleccionada = validas[0];
+          ac = 1; 
+        }else{
+          subirConjunto(validas[i + 1],tropa);
+          idSeleccionada = validas[i + 1];
+          ac = 1;
+        }
+     i = validas.length;
     }
+    }
+    }
+    if(ac == 0){
+      subirConjunto(validas[0],tropa);
+      idSeleccionada = validas[0];
+    }
+  }
 
 
 function filtroDuro(){
@@ -61,11 +86,8 @@ function filtroDuro(){
       tevento = document.getElementById('evento').value;
       prendasDuras = [];
       for(var i = 0; i < prendas.length; i++){
-        if((prendas[i].temporada == ttemporada || prendas[i].temporada == 5
-          || (ttemporada <= 2 && prendas[i].temporada == 6 ) || (ttemporada >= 3 && prendas[i].temporada == 7 ))
-          && (prendas[i].evento == tevento || prendas[i].evento== 5)
-          || (tevento <= 2 && prendas[i].evento == 6 ) || (tevento >= 2 && prendas[i].evento == 7 ))
-        {
+        if(( prendas[i].temporada == 3 || (ttemporada <= 2 && prendas[i].temporada == 1 ) || (ttemporada >= 3 && prendas[i].temporada == 2 ))
+          && ((prendas[i].evento == tevento) || (tevento <= 2 && prendas[i].evento == 4 ) || (tevento >= 2 && prendas[i].evento == 5 ))) {
           prendasDuras[x] = i;
           x++;
         }
@@ -75,7 +97,7 @@ function filtroDuro(){
 
 function elegirConjunto(){
 
-      ttemperatura = document.getElementById('temperatura').value;
+      //ttemperatura = document.getElementById('temperatura').value;
       let mprenda;
       var arrayPrendas = new Array();
       var j = 0, limitePorEstacion;
@@ -85,20 +107,22 @@ function elegirConjunto(){
       {
         limitePorEstacion = 2;
         mprenda = ["zapatillas","remera","pantalon"];
+        borrarSuperior();
       }
       else if (ttemporada == 2)
       {
         limitePorEstacion = 3;
         mprenda = ["zapatillas","remera","campera","pantalon"];
       }
+      else if(ttemporada == 3)
+      {
+        limitePorEstacion = 3;
+        mprenda = ["zapatillas","remera","buzo","pantalon"];
+      }
       else
       {
-        if(ttemperatura <= 15){
-        limitePorEstacion = 4;
-        mprenda = ["zapatillas","remera","buzo","abrigo","pantalon"];
-      }else
       limitePorEstacion = 3;
-        mprenda = ["zapatillas","remera","buzo","pantalon"];
+        mprenda = ["zapatillas","remera","abrigo","pantalon"];
       }
 
      for (var i = 0; i <= limitePorEstacion; i++) {
@@ -115,12 +139,8 @@ function elegirConjunto(){
         conjuntoNuevo[i] = prendaAleatorio;
         j = 0;
      }
-     if(repe >= 5)
-      alert("no tiene mas conjuntos posibles");
-    else{
-      validarRepe(conjuntoNuevo);
-    }
-    }
+     if(repe <= 2) validarRepe(conjuntoNuevo);
+   }
 
 function validarRepe(conjuntoNuevo){
   var igual = 0;
@@ -144,7 +164,9 @@ function validarRepe(conjuntoNuevo){
 function filtroBlando(){
     }
 
-
+function borrarSuperior(){
+ document.getElementById("imagensuperior").src = "";
+}
 function subirConjunto(prenda, mprenda){
 
       if(mprenda == "buzo" || mprenda == "campera" || mprenda == "abrigo")
@@ -154,13 +176,6 @@ function subirConjunto(prenda, mprenda){
       else
         document.getElementById("imagen"+ mprenda).src = "";
     }
-
-
-
-function borrarImagen(){
-	document.getElementById("imagenSeleccionada").src="";
-}
-
 
 function CambiarImagen(op) {
 	var nprenda = 0;

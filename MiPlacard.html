@@ -9,7 +9,7 @@
 		<script src="Js/Placard.js" type="text/javascript"></script>
 	</head>
 
-<body bgcolor="#dd9355">
+<body bgcolor="#7d7d7d">
 <header class="header">
 		<div class="contenedor">
 			<h1 class="logo">MiPlacard</h1>
@@ -34,67 +34,64 @@
 			</div>
 		</div>
 </header>
-		<section bgcolor="#99d99f" class="cuerpo">
-		<h3>Ropa Guardada</h3>
+		<section bgcolor="#636363" class="cuerpo">
+			<div class="cuadro_galeria">
+			<h3>Ropa Guardada</h3>
 			<form> 
-			<input type="button" onclick="CambiarTipoRopa()" value="Cambiar">
-			<input type="button" onclick="CambiarImagen(1)" value="Siguiente">
+			<div class="contenedor_galeria">
+				<input type="button" onclick="CambiarTipoRopa()" value="Cambiar">
+				<label class="tipo__ropa" id="Btprenda">Zapatilla</label></tr>
+				<input type="button" onclick="CambiarImagen(1)" value="Siguiente">
 			</form>
+			</div>
 			<section class="portafolio">
 			<div class="galeria">
 					<div class="ropa_tarjeta">
-						<h2 class="tipo__ropa" id="Btprenda">Zapatilla</h2>
 						<img id="ropa_imagen0" src="Img/zapatillas0.png" width="235px" height="235px" lt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen1" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen2" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen3" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen4" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen5" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen6" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 					<div class="ropa_tarjeta">
 						<img id="ropa_imagen7" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
-						<p class="ropa_txt">Info</p>
 					</div>
 			</div>
+		</div>
 
-			<div class="scontenedor"><h2>Eligir Prendas</h2>
+			<div class="scontenedor"><h2 id="tit_s">Eligir Prendas</h2>
+				<div class="galeria">
 				<div class="spreferencia">
 					<input type="button" onclick="filtroDuro()" value="Filtrar">
+					<input type="button" onclick="elegirConjunto()" value="Cambiar">
 					<input type="button" onclick="buscarPrenda()" value="Seleccionar">
-					<input type="button" onclick="borrarImagen()" value="Borrar">
 					<p>Tipo: <input type="text" id="tropa" name="tropa" size="30"></p>
 					<p>Color: <input type="text" id="colorp" name="Color" size="30"></p>
-					<p>Temperatura: <input type="text" id="temperatura" name="temperatura" size="2"></p>
 					<p>Estacion: <select name="select" id="temporada"><option value="1">Verano</option><option value="3">Otoño</option><option value="4">Invierno</option><option value="2">Primavera</option></select></p>
 					<p>Evento: <select name="select" id="evento"><option value="1">Casual</option><option value="2">Informal</option><option value="3">Formal</option></select></p>
        				<p><input type="checkbox" id="moda" checked> Deseo usar un conjunto a la moda.</p>
 				</div>
 				<div class="sropa">
-					<img id="imagenSeleccionada" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 					<img id="imagensuperior" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 					<img id="imagenremera" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 					<img id="imagenpantalon" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 					<img id="imagenzapatillas" src="" width="235px" height="235px" alt="" class="ropa_imagen_select">
 				</div>
+			</div>
 			</div>
 			</section>
 		</section>

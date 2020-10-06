@@ -19,8 +19,9 @@ else{
 $nombre = $_POST['nombre'];
 $contra = $_POST['contra'];
 $email = $_POST['email'];
+$prov = $_POST['provincia'];
 
-$consulta = "INSERT INTO usuarios (nombre, email, contra) VALUES ('".$nombre ."' , '" .$email . "','".$contra ."')";
+$consulta = "INSERT INTO usuarios (nombre, email, contra, localidad) VALUES ('".$nombre ."' , '" .$email . "','".$contra ."','".$prov ."')";
 
 
 $resultado = mysqli_query($enlace,$consulta);
