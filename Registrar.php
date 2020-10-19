@@ -20,8 +20,9 @@ $nombre = $_POST['nombre'];
 $contra = $_POST['contra'];
 $email = $_POST['email'];
 $prov = $_POST['provincia'];
+$fecha = $_POST['cumple'];
 
-$consulta = "INSERT INTO usuarios (nombre, email, contra, localidad) VALUES ('".$nombre ."' , '" .$email . "','".$contra ."','".$prov ."')";
+$consulta = "INSERT INTO usuarios (nombre, email, contra, localidad, cumple) VALUES ('".$nombre ."' , '" .$email . "','".$contra ."','".$prov ."','".$fecha ."')";
 
 
 $resultado = mysqli_query($enlace,$consulta);

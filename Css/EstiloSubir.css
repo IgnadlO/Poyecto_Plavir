@@ -1,0 +1,167 @@
+body{
+	background: #7d7d7d;
+}
+/*----------------Estilos de Header----------------*/
+.header{
+	height: 70px;
+	background: #484D4A;
+	position: relative;
+}
+
+.logo{
+	position: absolute;
+	left: 50%;
+	margin-top: 33px;
+	transform: translateX(-50%) translateY(-50%);
+	color: #fff;
+	text-align: center;
+}
+.header .cabeza{
+	display: flex;
+	justify-content: space-between;
+}
+.nav{
+	position: absolute;
+	left: 1%;
+	margin-top: 25px;
+}
+.menu{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.menu li{
+	display: inline;
+}
+.menu__link{
+	padding: 15px;
+	background: #FBA919;
+	text-decoration: none;
+	color: #fff;
+}
+.menu__link:hover {
+	background: white;
+	color: #FBA919;
+}
+
+
+#cuadroUsuario{ margin-right: 1%; color: #fff;}
+
+/*----------------Estilos del Cuerpo----------------*/
+
+#gran_contenedor{
+	width: 700px;
+    padding: 5px;
+    margin: auto;
+    margin-top: 75px;
+    background: #484D4A;
+    border: 1px solid #000000;
+}
+
+.Contenedor{
+    width: 500px;
+    padding: 5px;
+    margin: auto;
+}
+
+/*----------------Estilos de Imagen----------------*/
+#imagen {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    opacity: 0;
+}
+
+#contenedor_imagen {
+    position: relative;
+    padding: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    background: #FBA919;
+    color: white;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#contenedor_imagen:hover{ background: cadetblue; }
+
+#texto_imagen {
+    font-size: 20px;
+ }
+
+#previsualizar{
+    height: 235px;
+    width: 235px;
+    object-fit: contain;
+    border: 1px solid #000000;
+    display:block;
+    margin:auto;
+}
+
+/*----------------Estilos de Caracteristicas----------------*/
+
+h1{
+    text-align: center;
+    color: #FBA919;
+    font-size: 40px;
+}
+
+label{
+	font-size: 20px;
+    margin-left: 10px;
+    color: #8a8a8a;
+}
+.input{
+    font-size: 15px;
+    width: 72%;
+    padding: 10px;
+    border: none;
+}
+
+#temporada{ width: 408.5px; }
+#evento{ width: 420.5px; }
+#ropa{ width: 355.5px; }
+
+.Ingreso{
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    background: #fff;
+}
+.Boton{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #FBA919;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Boton:hover{
+    background: cadetblue;
+}
+p{
+    text-align: center;
+}
+.Formulario{
+    margin: auto;
+    width: 500px;
+    margin-top: 150px;
+    border-radius: 2%;
+}
+
+#nombre{
+    font-size: 20px;
+    width: 62%;
+    padding: 10px;
+    border: none;
+ }

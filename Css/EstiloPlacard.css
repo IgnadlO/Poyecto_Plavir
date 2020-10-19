@@ -22,17 +22,19 @@ h2{ color: #fff; }
 }
 .nav{
 	position: absolute;
-	top: 0%;
-	left: 0;
+	left: 1%;
+	margin-top: 25px;
 }
 .menu{
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
+.menu li{
+	display: inline;
+}
 .menu__link{
-	display: block;
-	padding: 10px;
+	padding: 15px;
 	background: #FBA919;
 	text-decoration: none;
 	color: #fff;
@@ -133,7 +135,13 @@ background-image: linear-gradient(-45deg, #e3ddd9 50%, #484D4A 50%);
 justify-content: space-around;
 flex-wrap: wrap;
 }
-#tit_s { text-align: center;  }
+
+#tit_s { 
+	text-align: center; 
+	font-style:italic;
+	font-size: 1.5em;
+	font-weight: bold;
+	  }
 
 .spreferencia{
 	width: 40%;

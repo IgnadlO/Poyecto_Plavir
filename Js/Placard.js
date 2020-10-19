@@ -1,10 +1,12 @@
-var tprenda = -1, repe = 0, idSeleccionada = -1;
+var tprenda = -1, repe = 0, idSeleccionada = -1, nprenda;
+var gtemporada, gevento, gmoda;
+var usuario;
 var prendasDuras = new Array();
 var conjunto = new Array();
 var prendas;
 
 function cargarData(){
-  var usuario = document.getElementById('usuario').value;
+  usuario = document.getElementById('usuario').value;
   var contra = document.getElementById('contra').value;
   var url = 'bajarPrendas.php';
   $.ajax({
@@ -25,7 +27,7 @@ function cargarData(){
         cuadro.remove(hijo);
         var capa = document.getElementById("cuadroUsuario");
         var h2 = document.createElement("h2");
-        h2.innerHTML = prendas[0].propietario;
+        h2.innerHTML = usuario;
         capa.appendChild(h2);
         CambiarTipoRopa();
       }
@@ -77,13 +79,23 @@ function buscarPrenda(){
     }
   }
 
-
-function filtroDuro(){
-      var x = 0;
-      tropa = document.getElementById('tropa').value;
+function filtrar(){
       tmoda = document.getElementById('moda').checked;
       ttemporada = document.getElementById('temporada').value;
       tevento = document.getElementById('evento').value;
+
+      if(tevento == gevento && ttemporada == gtemporada && tmoda == gmoda) elegirConjunto();
+      else {
+        gevento = tevento;
+        gtemporada = ttemporada;
+        gmoda = tmoda;
+       filtroDuro(tevento, tmoda, ttemporada);
+      }
+}
+
+function filtroDuro(tevento, tmoda, ttemporada){
+      var x = 0;
+      alert("Se activo filtroDuro");
       prendasDuras = [];
       for(var i = 0; i < prendas.length; i++){
         if(( prendas[i].temporada == 3 || (ttemporada <= 2 && prendas[i].temporada == 1 ) || (ttemporada >= 3 && prendas[i].temporada == 2 ))
@@ -97,7 +109,7 @@ function filtroDuro(){
 
 function elegirConjunto(){
 
-      //ttemperatura = document.getElementById('temperatura').value;
+      ttemporada = document.getElementById('temporada').value;
       let mprenda;
       var arrayPrendas = new Array();
       var j = 0, limitePorEstacion;
@@ -167,6 +179,7 @@ function filtroBlando(){
 function borrarSuperior(){
  document.getElementById("imagensuperior").src = "";
 }
+
 function subirConjunto(prenda, mprenda){
 
       if(mprenda == "buzo" || mprenda == "campera" || mprenda == "abrigo")
@@ -178,14 +191,10 @@ function subirConjunto(prenda, mprenda){
     }
 
 function CambiarImagen(op) {
-	var nprenda = 0;
   let mprenda = ["zapatillas","remera","campera","buzo","pantalon","gorra","lentes"];
   var prendasTipo = new Array();
   var x = 0;
-if(op == 1)
-{
-	nprenda = 8;
-}
+if (op != 1) nprenda = 0;
   prendasTipo = [];
 for (var i = prendas.length - 1; i >= 0; i--) {
   if(mprenda[tprenda] == prendas[i].tipo){
@@ -193,12 +202,13 @@ for (var i = prendas.length - 1; i >= 0; i--) {
     x++;
   }
 }
-for(var i = 0; i < 8; i++){
- document.getElementById("ropa_imagen"+ i).src = ""; 
-}
-for (var i = 0; i < x; i++) {
+
+if(x <= nprenda) nprenda = 0;
+for (var i = 0; i < 8; i++) {
+  if ((x >= 1) && nprenda < x){
   document.getElementById("ropa_imagen"+ i).src = prendas[prendasTipo[nprenda]].direccion;
   nprenda ++;
+} else document.getElementById("ropa_imagen"+ i).src = ""; 
 }
 }
 
@@ -211,6 +221,11 @@ function CambiarTipoRopa() {
   	tprenda = -1;
   }
   }
+
+function url() {
+  if(usuario != undefined) window.location="/Plavir/SubirPrendas.php?nombre="+usuario;
+  else alert("Para subir prendas usted debe iniciar sesion");
+}
 
   function aleatorio(variable){
 var aleatorio;

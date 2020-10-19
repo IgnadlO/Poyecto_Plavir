@@ -17,7 +17,7 @@
 			<nav class="nav">
 				<ul class="menu">
 				<li class="menu__item"><a class="menu__link" href="Index.html">Inicio</a></li>
-				<li class="menu__item"><a class="menu__link" href="SubirPrendas.html">Subir Prendas</a></li>
+				<li class="menu__item"><a class="menu__link" onclick="url()">Subir Prendas</a></li>
 				</ul>
 				</nav>
 				<div id="cuadroUsuario">
@@ -40,44 +40,43 @@
 			<form> 
 			<div class="contenedor_galeria">
 				<input type="button" onclick="CambiarTipoRopa()" value="Cambiar">
-				<label class="tipo__ropa" id="Btprenda">Zapatilla</label></tr>
+				<label class="tipo__ropa" id="Btprenda">Tipo de Prenda</label></tr>
 				<input type="button" onclick="CambiarImagen(1)" value="Siguiente">
 			</form>
 			</div>
 			<section class="portafolio">
 			<div class="galeria">
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen0" src="Img/zapatillas0.png" width="235px" height="235px" lt="" class="ropa_imagen">
+						<img id="ropa_imagen0" src="" width="235px" height="235px" lt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen1" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen1" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen2" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen2" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen3" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen3" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen4" src="Img/zapatillas1.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen4" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen5" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen5" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen6" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen6" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 					<div class="ropa_tarjeta">
-						<img id="ropa_imagen7" src="Img/zapatillas0.png" width="235px" height="235px" alt="" class="ropa_imagen">
+						<img id="ropa_imagen7" src="" width="235px" height="235px" alt="" class="ropa_imagen">
 					</div>
 			</div>
 		</div>
 
-			<div class="scontenedor"><h2 id="tit_s">Eligir Prendas</h2>
+			<div class="scontenedor"><h3 id="tit_s">Eligir Prendas</h3>
 				<div class="galeria">
 				<div class="spreferencia">
-					<input type="button" onclick="filtroDuro()" value="Filtrar">
-					<input type="button" onclick="elegirConjunto()" value="Cambiar">
+					<input type="button" onclick="filtrar()" value="Filtrar">
 					<input type="button" onclick="buscarPrenda()" value="Seleccionar">
 					<p>Tipo: <input type="text" id="tropa" name="tropa" size="30"></p>
 					<p>Color: <input type="text" id="colorp" name="Color" size="30"></p>
