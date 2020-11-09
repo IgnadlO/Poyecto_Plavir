@@ -36,6 +36,7 @@ function cargarData(){
 }
 
 function buscarPrenda(){
+  if(prendas != null){
     	tropa = document.getElementById('tropa').value;
       tropa = tropa.toLowerCase();
     	colorp = document.getElementById('colorp').value;
@@ -77,9 +78,11 @@ function buscarPrenda(){
       subirConjunto(validas[0],tropa);
       idSeleccionada = validas[0];
     }
+    }else alert("Para utilizar esta funcion debe iniciar sesion");
   }
 
 function filtrar(){
+      if(prendas != null){
       tmoda = document.getElementById('moda').checked;
       ttemporada = document.getElementById('temporada').value;
       tevento = document.getElementById('evento').value;
@@ -91,6 +94,7 @@ function filtrar(){
         gmoda = tmoda;
        filtroDuro(tevento, tmoda, ttemporada);
       }
+    }else alert("Para utilizar esta funcion debe iniciar sesion");
 }
 
 function filtroDuro(tevento, tmoda, ttemporada){
@@ -171,9 +175,6 @@ function validarRepe(conjuntoNuevo){
       }
       }
 }
-
-function filtroBlando(){
-    }
 
 function borrarSuperior(){
  document.getElementById("imagensuperior").src = "";
