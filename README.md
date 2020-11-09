@@ -6,6 +6,9 @@ Cuenta es la pagina con la que los nuevos usuarios se Registran.
 MiPlacard es la pagina principal ya que en esta se encuentra el objetivo y la mayor funcionalidad.
 SubirPrendas es la pagina con la que se suben las prendas.
 
+IMPORTANTE
+Se agrego la base de datos (plavir.sql) para que los usuarios puedan importarlo y usarlo. 
+
 Para poder experimentar con la pagina se facilita un usuario y su contraseña con prendas cargadas.
 Usuario: Ignacio
 Contraseña: 4444
