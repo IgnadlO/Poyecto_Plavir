@@ -95,7 +95,6 @@ function filtrar(){
 
 function filtroDuro(tevento, tmoda, ttemporada){
       var x = 0;
-      alert("Se activo filtroDuro");
       prendasDuras = [];
       for(var i = 0; i < prendas.length; i++){
         if(( prendas[i].temporada == 3 || (ttemporada <= 2 && prendas[i].temporada == 1 ) || (ttemporada >= 3 && prendas[i].temporada == 2 ))

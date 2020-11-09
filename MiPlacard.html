@@ -24,9 +24,9 @@
 				<div id="cuadroLogin">
 					<div id="cuadro_hijo">
 				<form>
-					<input type="button" onclick="cargarData()" value="Login">
+					<input type="button" onclick="cargarData()" class="boton_galeria" id="login" value="Login">
 					<input type="text" name="usuario" id="usuario" placeholder="Usuario"><br/>
-					<a href="Registro.html">Registra</a>
+					<input type="button" onclick="location.href='Registro.html';" class="boton_galeria" id="regis" value="Regis">
 					<input type="password" name="contra" id="contra" placeholder="Contraseña">
 				</form>
 					</div>
@@ -39,9 +39,9 @@
 			<h3>Ropa Guardada</h3>
 			<form> 
 			<div class="contenedor_galeria">
-				<input type="button" onclick="CambiarTipoRopa()" value="Cambiar">
+				<input type="button" class="boton_galeria" onclick="CambiarTipoRopa()" value="Cambiar">
 				<label class="tipo__ropa" id="Btprenda">Tipo de Prenda</label></tr>
-				<input type="button" onclick="CambiarImagen(1)" value="Siguiente">
+				<input type="button" class="boton_galeria" onclick="CambiarImagen(1)" value="Siguiente">
 			</form>
 			</div>
 			<section class="portafolio">
@@ -76,8 +76,8 @@
 			<div class="scontenedor"><h3 id="tit_s">Eligir Prendas</h3>
 				<div class="galeria">
 				<div class="spreferencia">
-					<input type="button" onclick="filtrar()" value="Filtrar">
-					<input type="button" onclick="buscarPrenda()" value="Seleccionar">
+					<input type="button" class="boton_galeria" onclick="filtrar()" value="Filtrar">
+					<input type="button" class="boton_galeria" onclick="buscarPrenda()" value="Seleccionar">
 					<p>Tipo: <input type="text" id="tropa" name="tropa" size="30"></p>
 					<p>Color: <input type="text" id="colorp" name="Color" size="30"></p>
 					<p>Estacion: <select name="select" id="temporada"><option value="1">Verano</option><option value="3">Otoño</option><option value="4">Invierno</option><option value="2">Primavera</option></select></p>

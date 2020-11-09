@@ -101,29 +101,26 @@ border: 1px solid #000000;
 .tipo__ropa{
 	text-align: center;
 }
+
+.boton_galeria{
+	padding: 10px;
+	background: #FBA919;
+	text-decoration: none;
+	color: #fff;
+	border: 0;
+}
+
+#login { padding: 5px; }
+#regis { padding: 5px; margin-top: 2px; }
+
+.boton_galeria:hover {
+	background: white;
+	color: #FBA919;
+}
 .ropa_txt
 {
 
 }
-/*----------------Estilos de Subir Foto----------------*/
-.preload{
-	padding-top: 20px;
-	text-align: center;
-	display: none;
-}
-button{
-	margin: 0;
-	padding: 0;
-}
-#container-input{
-	width: 640px
-	margin:0 auto;
-	border: solid 1px #CCC;
-	position: relative;
-	overflow: hidden;
-}
-
-
 
 /*----------------Estilos de Placard----------------*/
 .scontenedor{
