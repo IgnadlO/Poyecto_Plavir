@@ -82,6 +82,30 @@ body{
 		} 
 
 .quienes-somos{
-	margin:35px 500px;
+	margin:15px 500px;
 	} 
+
+.indumentaria{
+	float:left;
+	margin: 10px 30px;
+	}
+
+.contactanos{
+	text-align: right;
+	}
+
+.num{
+	text-align: right;
+	}
+
+.indumentaria-2{
+	float: left;
+	margin:1px 150px;
+	}
+
+.contactanos-2{
+	text-align: right;
+	margin: 10px 10px;
+	}
+
 
