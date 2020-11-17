@@ -223,7 +223,7 @@ function CambiarTipoRopa() {
   }
 
 function url() {
-  if(usuario != undefined) window.location="/Plavir/SubirPrendas.php?nombre="+usuario;
+  if(usuario != undefined) window.location="SubirPrendas.php?nombre="+usuario;
   else alert("Para subir prendas usted debe iniciar sesion");
 }
 
