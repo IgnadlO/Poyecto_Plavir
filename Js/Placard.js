@@ -154,7 +154,8 @@ function elegirConjunto(){
         conjuntoNuevo[i] = prendaAleatorio;
         j = 0;
      }
-     if(repe <= 2) validarRepe(conjuntoNuevo);
+     if(repe < 2) validarRepe(conjuntoNuevo);
+     else repe = 0;
    }
 
 function validarRepe(conjuntoNuevo){
@@ -166,8 +167,8 @@ function validarRepe(conjuntoNuevo){
           }
      }
      if(igual == j){
-      elegirConjunto();
       repe ++;
+      setTimeout(elegirConjunto(), 1000);
      }else{
       for (var i = 0; i <= j; i++) {
         conjunto[i] = conjuntoNuevo[i];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2020 a las 16:01:44
+-- Tiempo de generación: 17-11-2020 a las 20:18:51
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -34,7 +34,7 @@ CREATE TABLE `prendas` (
   `moda` int(11) NOT NULL,
   `temporada` int(11) NOT NULL,
   `evento` int(11) NOT NULL,
-  `direccion` text DEFAULT NULL,
+  `direccion` text NOT NULL,
   `idPrenda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -75,7 +75,12 @@ INSERT INTO `prendas` (`propietario`, `tipo`, `colorp`, `moda`, `temporada`, `ev
 ('Carlos', 'buzo', 'gris', 0, 2, 1, 'Img/Carlos/buzo0.png', 57),
 ('Carlos', 'buzo', 'blanco', 0, 2, 1, 'Img/Carlos/buzo1.png', 59),
 ('Ignacio', 'pantalon', 'gris', 0, 1, 1, 'Img/Ignacio/pantalon9.png', 60),
-('Anibal', 'pantalon', 'amarillo', 0, 1, 1, 'Img/Anibal/pantalon0.png', 61);
+('Anibal', 'pantalon', 'amarillo', 0, 1, 1, 'Img/Anibal/pantalon0.png', 61),
+('Oscar', 'pantalon', 'gris', 0, 1, 1, 'Img/Oscar/pantalon0.png', 62),
+('Oscar', 'pantalon', 'negro', 0, 3, 5, 'Img/Oscar/pantalon1.png', 63),
+('Oscar', 'pantalon', 'amarillo', 0, 1, 1, 'Img/Oscar/pantalon2.png', 64),
+('Oscar', 'remera', 'azul', 0, 1, 1, 'Img/Oscar/remera0.png', 65),
+('DonPepe', '', '', 0, 1, 1, 'Img/DonPepe/0.png', 67);
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,10 @@ INSERT INTO `usuarios` (`id`, `nombre`, `email`, `localidad`, `contra`, `cumple`
 (20, 'Pepe', 'Pepito@gmail.com', 'caba', '$2y$10$UmDquC3kW7eelgylR0Q23OxQ8J5.U8xT42u3Ftwlcs8dLYPgUkicC', '1980-10-09'),
 (21, 'Anibal', 'Anibalito@yahoo.com', 'caba', '$2y$10$wXIwxA5/f69naYVFI/lh5eVgRsZoEyf.p1F/GfgScUD4oVGMXLb/C', '1980-08-01'),
 (22, 'Sacerdote', 'papa@vaticano.com', 'caba', '$2y$10$a8LuqBLPatTbqHezR313Z.GSL6udX3hszOKl5WlpPoPcLfW3DvGDC', '1950-10-10'),
-(24, 'Coco', 'coco@coca.com', NULL, '$2y$10$aXh9LiDS4OQ0OJ8I62PW1.qGr9R0z8XeZli5oM5un1NAxVeXFx0Ji', '1967-07-07');
+(24, 'Coco', 'coco@coca.com', NULL, '$2y$10$aXh9LiDS4OQ0OJ8I62PW1.qGr9R0z8XeZli5oM5un1NAxVeXFx0Ji', '1967-07-07'),
+(25, 'Oscar', 'Venecia@gmail.com', NULL, '$2y$10$lE0Nvqa83pqwIQIjT79Yoe7sFqSyLPeH5KSpK4G6JEQSrcGdUmClC', '1996-12-07'),
+(26, 'DonPepe', 'Pepito@gmail.com', NULL, '$2y$10$fYKss6VXY3QxX/jW98828e7TQOCqOlU1YtCvPf0lSJKRn3gLPpoHG', '1950-04-10'),
+(27, '', '', NULL, '$2y$10$kGfaM3s9ECaN/k.nfXl22O6JM93PByj2eDwFWViicYMrYzLVUXVMm', '1955-06-01');
 
 --
 -- Índices para tablas volcadas
@@ -129,13 +137,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `prendas`
 --
 ALTER TABLE `prendas`
-  MODIFY `idPrenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `idPrenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

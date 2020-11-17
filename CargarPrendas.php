@@ -49,13 +49,13 @@ mysqli_close($enlace);
 if($resultado){
     echo '<script language="javascript">
     alert("La informacion se ha cargado en el servidor correctamente");
-    window.location="/Plavir/SubirPrendas.php?nombre='.$nombre.'";
+    window.location="SubirPrendas.php?nombre='.$nombre.'";
     </script>';
 }
 else{
     echo '<script language="javascript">
     	alert("No se ha subido su prenda. Por favor, intentelo más tarde.");
-    	window.location="/Plavir/SubirPrendas.php?nombre="'.$nombre.'";
+    	window.location="SubirPrendas.php?nombre="'.$nombre.'";
         </script>';
 }
 

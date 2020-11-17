@@ -44,7 +44,6 @@
 	<div class="contenedor">
 		<div class="Ingreso">		
 		<label>Tipo de Prenda: <select class="input" name="ropa" id="ropa">
-			<option value=""></option>
 			<option value="remera">Remera</option>
 			<option value="pantalon">Pantalon</option>
 			<option value="zapatillas">Zapatillas</option>
@@ -55,7 +54,7 @@
 			<option value="gorro">Gorro</option></select></label>
 		</div>
 		<div class="Ingreso">
-		<label>Color Principal:<input type="text" id="cp" name="cp" size="30" class="input"></label>
+		<label>Color Principal:<input type="text" id="cp" name="cp" size="30" class="input" required=""></label>
 		</div>
 		<div class="Ingreso">
 		<label>Esta a la Moda? <input type="checkbox" id="moda" name="moda" checked></label>

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title></title> 
+	<title>Registrarse</title> 
 	<style>
         * {
             box-sizing: border-box;
@@ -74,19 +74,19 @@
     <h1>Registrate</h1>
      <div class="Contenedor">
      <div class="Ingreso">
-         <input type="text" placeholder="Nombre Completo" name="nombre" class="input">
+         <input type="text" placeholder="Nombre Completo" name="nombre" class="input" required>
          </div>
          
          <div class="Ingreso">
-         <input type="email" placeholder="Correo Electronico" name="email" class="input">    
+         <input type="email" placeholder="Correo Electronico" name="email" class="input" required>    
          </div>
          
          <div class="Ingreso">
-         <input type="password" placeholder="Contraseña" name="contra" id="contra" class="input"> 
+         <input type="password" placeholder="Contraseña" name="contra" id="contra" class="input" required> 
          </div>
 
          <div class="Ingreso">
-         <input type="password" placeholder="Repetir Contraseña" id="contra2" class="input"> 
+         <input type="password" placeholder="Repetir Contraseña" id="contra2" class="input" required> 
          </div>
 
          <div class="Ingreso">
@@ -94,7 +94,7 @@
          </div>
 
          <input type="button" value="Registrate" class="Boton" onclick="validar()">
-         <a class="link" href="Index.html">Volver al inicio</a>
+         <center><a class="link" href="Index.html">Volver al inicio</a></center>
      </div>
     </form>
     <script type="text/javascript">
