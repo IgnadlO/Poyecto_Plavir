@@ -90,10 +90,6 @@
          </div>
 
          <div class="Ingreso">
-         <input type="text" name="provincia" placeholder="Provincia" id="provincia" class="input">
-         </div>
-
-         <div class="Ingreso">
          <label>Nacimiento: </label><input type="date" name="cumple" id="cumple" max="2007-10-07">
          </div>
 
@@ -105,38 +101,21 @@
         
     function validar(){
         contra = document.getElementById('contra').value;
-        provincia = document.getElementById('provincia').value;
         contra2 = document.getElementById('contra2').value;
         peron = document.getElementById('cumple').value
         //gg = document.getElementById('gg').value;
 
         if(contra == contra2 && contra != ""){
-            provincia = provincia.toLowerCase();
-            if (validarProvincia(provincia) == 1) {
-                document.getElementById('provincia').value = provincia;
                 if(validarEdad(peron) == 1)
                 subir();
                 else{
                     alert("Edad no valida");
                 }  
             }else{
-               alert("La provincia no es valida") 
-            }      
-        }else{
             alert("La contraseña se ha escrito incorrectamente");
             document.getElementById('contra').value = "";
             document.getElementById('contra2').value = "";
         }
-    }
-
-    function validarProvincia(provincia){
-        let validas = ["buenos aires","caba","catamarca","chaco","chubut","cordoba","corrientes","entre rios","formosa","jujuy","la pampa","la rioja","mendoza","misiones","neuquen","rio negro","salta","san juan","santa fe","santiago del estero","tierra del fuego","tucuman"];
-        for (var i = 0; i <= validas.length - 1; i++){
-            if (provincia == validas[i]){
-                return 1;
-            }
-        }
-        return 0;
     }
 
     function validarEdad(fecha) {

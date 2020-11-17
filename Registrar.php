@@ -5,24 +5,19 @@ $password = "";
 $database = "plavir";
 
 $enlace = mysqli_connect($servername, $username,$password, $database);
-
 if ($enlace == false ) {
   die("Fallo la conexion a la base de datos" . $enlace->connect_error);
 }
-if(isset($_POST["submit"])){
-    echo "La informacion se ha cargado en el servidor correctamente";
-}
-else{
-    echo "No se ha subido su prenda. Por favor, intentelo más tarde.";
-}
+
 
 $nombre = $_POST['nombre'];
 $contra = $_POST['contra'];
 $email = $_POST['email'];
-$prov = $_POST['provincia'];
 $fecha = $_POST['cumple'];
 
-$consulta = "INSERT INTO usuarios (nombre, email, contra, localidad, cumple) VALUES ('".$nombre ."' , '" .$email . "','".$contra ."','".$prov ."','".$fecha ."')";
+$pass = password_hash( $contra, PASSWORD_DEFAULT);
+
+$consulta = "INSERT INTO usuarios (nombre, email, contra, cumple) VALUES ('".$nombre ."' , '" .$email . "','".$pass ."','".$fecha ."')";
 
 
 $resultado = mysqli_query($enlace,$consulta);
@@ -32,8 +27,9 @@ if($resultado){
           </script>';
 }
 else{
-    echo '<script language="javascript">alert("No se ha subido su prenda. Por favor, intentelo más tarde.");document.location.href="MiPlacard.html";
+    echo '<script language="javascript">alert("Su nombre de usuario ya existe. Por favor, intente con otro.");document.location.href="Registro.html";
           </script>';
 }
+
 
 ?>

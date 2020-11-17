@@ -57,12 +57,13 @@ while($row = mysqli_fetch_array($result))
 { 
     $usuario=$row['nombre'];
     $ct=$row['contra'];
-    if($usuario == $nombre && $contra == $ct){
+    $verify = password_verify($contra, $ct); 
+    if($usuario == $nombre && $verify == true){
         disconnectDB($conexion);
         $myArray = getArraySQL($nombre);
         echo json_encode($myArray);
         return;
-    }else if ($usuario == $nombre && $contra != $ct) {
+    }else if ($usuario == $nombre && $verify == false) {
         echo "1";
         disconnectDB($conexion);
         return;
