@@ -35,7 +35,7 @@
 		
 	</div>
 <div id="contenedor_imagen">
-	<input type="file" name="imagen" id="imagen" multiple>
+	<input type="file" name="imagen" id="imagen" onchange="validarImagen(this);" required multiple>
 	<a id="texto_imagen">Elegir Imagen </a>
 </div>
 </div>
@@ -57,9 +57,6 @@
 		<label>Color Principal:<input type="text" id="cp" name="cp" size="30" class="input" required=""></label>
 		</div>
 		<div class="Ingreso">
-		<label>Esta a la Moda? <input type="checkbox" id="moda" name="moda" checked></label>
-		</div>
-		<div class="Ingreso">
 		<label>Estacion: <select class="input" name="temporada" id="temporada"><option value="1">Verano/Primavera</option><option value="2">Invierno/Otoño</option><option value="3">Indistinto</option></select></label>
 		</div>
 		<div class="Ingreso">
@@ -76,15 +73,47 @@
 			echo "</label>";
 		?>
 		</div>
-		</br>
+		<a style="color: white; font-size: 20px;" >Esta a la Moda? <input type="checkbox" id="moda" name="moda" checked></a>
+		<br>
+		<br>
 		<input type="submit" value="Subir" class="Boton" ><br/>
 	</div>
 </form>
 </div>
 <script type="text/javascript">
-	document.getElementById("imagen").onchange = function(e) {
+
+	function validarImagen(obj){
+    var uploadFile = obj.files[0];
+
+    if (!window.FileReader) {
+        alert('El navegador no soporta la lectura de archivos');
+        document.getElementById("imagen").value = "";
+        return;
+    }
+
+    if (!(/\.(jpg|png|gif)$/i).test(uploadFile.name)) {
+        alert('El archivo a adjuntar no es una imagen');
+         document.getElementById("imagen").value = "";
+    }
+    else {
+        var img = new Image();
+        img.onload = function () {
+            if (uploadFile.size > 500000)
+            {
+                alert('El peso de la imagen no puede exceder los 5mb')
+                document.getElementById("imagen").value = "";
+            }
+            else {
+               previsualizar(obj);            
+            }
+        };
+        img.src = URL.createObjectURL(uploadFile);
+    }                 
+}
+
+function previsualizar(obj){
   let reader = new FileReader();
-  reader.readAsDataURL(e.target.files[0]);
+  reader.readAsDataURL(obj.files[0]);
   reader.onload = function(){
     let preview = document.getElementById('cuadroImagen'),
             image = document.createElement('img');
