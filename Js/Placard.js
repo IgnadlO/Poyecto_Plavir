@@ -121,23 +121,23 @@ function elegirConjunto(){
       if (ttemporada == 1) 
       {
         limitePorEstacion = 2;
-        mprenda = ["zapatillas","remera","pantalon"];
-        borrarSuperior();
+        mprenda = ["remera","pantalon","zapatillas"];
+        borrarImagen("superior");
       }
       else if (ttemporada == 2)
       {
         limitePorEstacion = 3;
-        mprenda = ["zapatillas","remera","campera","pantalon"];
+        mprenda = ["campera","remera","pantalon","zapatillas"];
       }
       else if(ttemporada == 3)
       {
         limitePorEstacion = 3;
-        mprenda = ["zapatillas","remera","buzo","pantalon"];
+        mprenda = ["buzo","remera","pantalon","zapatillas"];
       }
       else
       {
       limitePorEstacion = 3;
-        mprenda = ["zapatillas","remera","abrigo","pantalon"];
+        mprenda = ["abrigo","remera","pantalon","zapatillas"];
       }
 
      for (var i = 0; i <= limitePorEstacion; i++) {
@@ -177,18 +177,24 @@ function validarRepe(conjuntoNuevo){
       }
 }
 
-function borrarSuperior(){
- document.getElementById("imagensuperior").src = "";
+function borrarImagen(mprenda){
+  if(document.getElementById("imagen"+mprenda)){
+        imagen = document.getElementById("imagen"+mprenda);
+        padre = imagen.parentNode;
+        padre.removeChild(imagen);
+      }
 }
 
 function subirConjunto(prenda, mprenda){
 
       if(mprenda == "buzo" || mprenda == "campera" || mprenda == "abrigo")
         mprenda = "superior";
-      if(prenda != null)
-        document.getElementById("imagen"+ mprenda).src = prendas[prenda].direccion;
-      else
-        document.getElementById("imagen"+ mprenda).src = "";
+      if(prenda != null){
+        var lista = document.getElementById("sropa");
+        borrarImagen(mprenda);
+        lista.insertAdjacentHTML("beforeend",'<img src="'+ prendas[prenda].direccion +'" width="235px" height="235px" alt="" class="ropa_imagen_select" id="imagen'+ mprenda +'" />');
+      }
+      else borrarImagen(mprenda);
     }
 
 function CambiarImagen(op) {
@@ -207,9 +213,9 @@ for (var i = prendas.length - 1; i >= 0; i--) {
 if(x <= nprenda) nprenda = 0;
 for (var i = 0; i < 8; i++) {
   if ((x >= 1) && nprenda < x){
-  document.getElementById("ropa_imagen"+ i).src = prendas[prendasTipo[nprenda]].direccion;
+  document.getElementById("ropa_imagen"+ i).innerHTML='<img src="'+ prendas[prendasTipo[nprenda]].direccion +'" alt="" class="ropa_imagen" />';
   nprenda ++;
-} else document.getElementById("ropa_imagen"+ i).src = ""; 
+} else document.getElementById("ropa_imagen"+ i).innerHTML=""; 
 }
 }
 
