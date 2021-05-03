@@ -1,5 +1,8 @@
 # Poyecto_Plavir
 Info Del Proyecto:
+Este proyecto se basa en un sitio WEB que elige que prendas puede ponerse el usuario de manera automática. Además, la misma funciona como un placar virtual. Es decir, el usuario sube fotos de sus prendas, pone sus gustos, y preferencias, y la aplicación le muestra el conjunto que más se adecue.
+
+Paginas:
 Index es la pagina de incio, es decir, la pagina en la que ingresaran los usuarios al inicio.
 Info es la pagina que nos brinda informacion del proyecto, su utilidad, y su/s creadores.
 Cuenta es la pagina con la que los nuevos usuarios se Registran.
