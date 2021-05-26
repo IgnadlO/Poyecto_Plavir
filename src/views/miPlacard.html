@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<htlm lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>MiPlacard</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="Css/EstiloPlacard.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="Placard.js" type="text/javascript"></script>
+	</head>
+
+<body bgcolor="#262626">
+<header class="header">
+		<div class="contenedor">
+			<h1 class="logo">MiPlacard</h1>
+			<span class="icon-menu"></span>
+			<nav class="nav">
+				<ul class="menu">
+				<li class="menu__item"><a class="menu__link" href="/">Inicio</a></li>
+				<li class="menu__item"><a class="menu__link" href="/subirPrendas">Subir Prendas</a></li>
+				</ul>
+				</nav>
+				<div id="cuadroUsuario">
+				<input id="usuarioHidden" hidden="" value="<%= nombre %>">
+				<%if(nombre != 'false'){%>
+				<h2 id="cuadroNombreUsuario"><%= nombre %></h2>
+				<%} else { %>
+				<div id="cuadroLogin">
+					<div id="cuadro_hijo">
+				<form>
+					<input type="button" onclick="cargarData(true)" class="boton_galeria" id="login" value="Login">
+					<input type="text" name="usuario" id="usuario" placeholder="Usuario"><br/>
+					<input type="button" onclick="location.href='/singUp';" class="boton_galeria" id="regis" value="Regis">
+					<input type="password" name="contra" id="contra" placeholder="Contraseña">
+				</form>
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</div>
+</header>
+		<section bgcolor="#636363" class="cuerpo">
+			<div class="cuadro_galeria">
+			<h3>Ropa Guardada</h3>
+			<form> 
+			<div class="contenedor_galeria">
+				<input type="button" class="boton_galeria" onclick="CambiarTipoRopa()" value="Cambiar">
+				<label class="tipo__ropa" id="Btprenda">Tipo de Prenda</label></tr>
+				<input type="button" class="boton_galeria" onclick="CambiarImagen(1)" value="Siguiente">
+			</form>
+			</div>
+			<section class="portafolio">
+			<div class="galeria">
+					<div class="ropa_tarjeta" id="ropa_imagen0">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen1">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen2">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen3">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen4">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen5">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen6">
+					</div>
+					<div class="ropa_tarjeta" id="ropa_imagen7">
+					</div>
+			</div>
+		</div>
+
+			<div class="scontenedor"><h3 id="tit_s">Eligir Prendas</h3>
+				<div class="galeria">
+				<div class="spreferencia">
+					<input type="button" class="boton_galeria" onclick="filtrar()" value="Filtrar">
+					<p>Estacion: <select name="select" id="temporada"><option value="1">Verano</option><option value="3">Otoño</option><option value="4">Invierno</option><option value="2">Primavera</option></select></p>
+					<p>Evento: <select name="select" id="evento"><option value="1">Casual</option><option value="2">Informal</option><option value="3">Formal</option></select></p>
+       				<p><input type="checkbox" id="moda" checked> Deseo usar un conjunto a la moda.</p></br>
+					<input type="button" class="boton_galeria" onclick="buscarPrenda()" value="Seleccionar">
+					<p>Tipo: <input type="text" id="tropa" name="tropa" size="30"></p>
+					<p>Color: <input type="text" id="colorp" name="Color" size="30"></p>
+				</div>
+				<div class="sropa" id="sropa">
+				</div>
+			</div>
+			</div>
+			</section>
+		</section>
+	</body>
+</html>

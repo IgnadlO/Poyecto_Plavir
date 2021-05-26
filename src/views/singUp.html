@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Registrarse</title> 
+	<style>
+        * {
+            box-sizing: border-box;
+        }
+        .Contenedor{
+            width: 100%;
+            padding: 15px;
+        }
+        .Formulario{
+            background: #fff;
+            margin-top: 150px;
+            padding: 3px;
+        }
+        h1{
+            text-align: center;
+            color: #1a2537;
+            font-size: 40px;
+        }
+        label{
+            font-size: 20px;
+            margin-left: 10px;
+            color: #8a8a8a;
+        }
+        .input{
+            font-size: 20px;
+            width: 82%;
+            padding: 10px;
+            border: none;
+        }
+         input[type="date"]{
+            font-size: 20px;
+            width: 62%;
+            padding: 10px;
+            border: none; 
+        }
+        .Ingreso{
+            margin-bottom: 15px;
+            border: 1px solid #aaa;
+        }
+        .Boton{
+            border: none;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            background:  #1a2537;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .Boton:hover{
+            background: cadetblue;
+        }
+        a{
+            text-align: center;
+        }
+        .Formulario{
+            margin: auto;
+            width: 500px;
+            margin-top: 150px;
+            border-radius: 2%;
+        }
+    </style>
+</head>  
+<body>
+ <form method="POST" class="Formulario" id="Formulario" action="/singUp">
+    
+    <h1>Registrate</h1>
+     <div class="Contenedor">
+     <div class="Ingreso">
+         <input type="text" placeholder="Nombre Completo" name="nombre" class="input" required>
+         </div>
+         
+         <div class="Ingreso">
+         <input type="email" placeholder="Correo Electronico" name="email" class="input" required>    
+         </div>
+         
+         <div class="Ingreso">
+         <input type="password" placeholder="Contraseña" name="contra" id="contra" class="input" required> 
+         </div>
+
+         <div class="Ingreso">
+         <input type="password" placeholder="Repetir Contraseña" id="contra2" class="input" required> 
+         </div>
+
+         <div class="Ingreso">
+         <label>Nacimiento: </label><input type="date" name="cumple" id="cumple" max="2007-10-07">
+         </div>
+
+         <input type="button" value="Registrate" class="Boton" onclick="validar()">
+         <center><a class="link" href="/">Volver al inicio</a></center>
+     </div>
+    </form>
+    <script type="text/javascript">
+        
+    function validar(){
+        let contra = document.getElementById('contra').value;
+        let contra2 = document.getElementById('contra2').value;
+        let peron = document.getElementById('cumple').value
+
+        if(contra == contra2 && contra != ""){
+                if(validarEdad(peron) == 1)
+                    subir();
+                else 
+                    alert("Edad no valida");  
+            }else{
+            alert("La contraseña se ha escrito incorrectamente");
+            contra.value = "";
+            contra2.value = "";
+        }
+    }
+
+    function validarEdad(fecha) {
+        let fechaUsuario = new Date(fecha).getTime();
+        let fechaActual = new Date();
+
+        let diff = fechaActual - fechaUsuario;
+        let anos = Math.floor(diff/31536000000);
+
+        if (anos >= 13) return 1;
+        return 0;
+    }
+
+    const subir = () => document.getElementById("Formulario").submit();
+
+    </script>
+</body>
+</html>
