@@ -2,4 +2,4 @@
 /node_modules
 
 #archivos
-*.env
+.env
